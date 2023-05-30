@@ -9,13 +9,15 @@
 /* Begin PBXBuildFile section */
 		022005BB2A25FFDD0056E7BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022005BA2A25FFDD0056E7BD /* AppDelegate.swift */; };
 		022005BD2A25FFDD0056E7BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022005BC2A25FFDD0056E7BD /* SceneDelegate.swift */; };
-		022005BF2A25FFDD0056E7BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022005BE2A25FFDD0056E7BD /* ViewController.swift */; };
+		022005BF2A25FFDD0056E7BD /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022005BE2A25FFDD0056E7BD /* SearchViewController.swift */; };
 		022005C52A25FFDD0056E7BD /* TestTaskFromRAY.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 022005C32A25FFDD0056E7BD /* TestTaskFromRAY.xcdatamodeld */; };
 		022005C72A25FFDD0056E7BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 022005C62A25FFDD0056E7BD /* Assets.xcassets */; };
 		022005CA2A25FFDD0056E7BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 022005C82A25FFDD0056E7BD /* LaunchScreen.storyboard */; };
 		022005D52A25FFDD0056E7BD /* TestTaskFromRAYTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022005D42A25FFDD0056E7BD /* TestTaskFromRAYTests.swift */; };
 		022005DF2A25FFDD0056E7BD /* TestTaskFromRAYUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022005DE2A25FFDD0056E7BD /* TestTaskFromRAYUITests.swift */; };
 		022005E12A25FFDE0056E7BD /* TestTaskFromRAYUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022005E02A25FFDE0056E7BD /* TestTaskFromRAYUITestsLaunchTests.swift */; };
+		022005F22A2603EB0056E7BD /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022005F12A2603EB0056E7BD /* TabBarController.swift */; };
+		022005F62A2606920056E7BD /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022005F52A2606920056E7BD /* FavoriteViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +41,7 @@
 		022005B72A25FFDD0056E7BD /* TestTaskFromRAY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestTaskFromRAY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		022005BA2A25FFDD0056E7BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		022005BC2A25FFDD0056E7BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		022005BE2A25FFDD0056E7BD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		022005BE2A25FFDD0056E7BD /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		022005C42A25FFDD0056E7BD /* TestTaskFromRAY.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TestTaskFromRAY.xcdatamodel; sourceTree = "<group>"; };
 		022005C62A25FFDD0056E7BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		022005C92A25FFDD0056E7BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +51,8 @@
 		022005DA2A25FFDD0056E7BD /* TestTaskFromRAYUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestTaskFromRAYUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		022005DE2A25FFDD0056E7BD /* TestTaskFromRAYUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTaskFromRAYUITests.swift; sourceTree = "<group>"; };
 		022005E02A25FFDE0056E7BD /* TestTaskFromRAYUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTaskFromRAYUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		022005F12A2603EB0056E7BD /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		022005F52A2606920056E7BD /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,12 +103,9 @@
 		022005B92A25FFDD0056E7BD /* TestTaskFromRAY */ = {
 			isa = PBXGroup;
 			children = (
-				022005BA2A25FFDD0056E7BD /* AppDelegate.swift */,
-				022005BC2A25FFDD0056E7BD /* SceneDelegate.swift */,
-				022005BE2A25FFDD0056E7BD /* ViewController.swift */,
-				022005C62A25FFDD0056E7BD /* Assets.xcassets */,
-				022005C82A25FFDD0056E7BD /* LaunchScreen.storyboard */,
-				022005CB2A25FFDD0056E7BD /* Info.plist */,
+				022005ED2A26032B0056E7BD /* Application */,
+				022005EE2A2603440056E7BD /* Resource */,
+				022005F02A2603990056E7BD /* Screens */,
 				022005C32A25FFDD0056E7BD /* TestTaskFromRAY.xcdatamodeld */,
 			);
 			path = TestTaskFromRAY;
@@ -125,6 +126,51 @@
 				022005E02A25FFDE0056E7BD /* TestTaskFromRAYUITestsLaunchTests.swift */,
 			);
 			path = TestTaskFromRAYUITests;
+			sourceTree = "<group>";
+		};
+		022005ED2A26032B0056E7BD /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				022005BC2A25FFDD0056E7BD /* SceneDelegate.swift */,
+				022005BA2A25FFDD0056E7BD /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		022005EE2A2603440056E7BD /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				022005C62A25FFDD0056E7BD /* Assets.xcassets */,
+				022005CB2A25FFDD0056E7BD /* Info.plist */,
+				022005C82A25FFDD0056E7BD /* LaunchScreen.storyboard */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		022005F02A2603990056E7BD /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				022005F32A26040D0056E7BD /* SearchViewController */,
+				022005F42A26042C0056E7BD /* FavoriteViewController */,
+				022005F12A2603EB0056E7BD /* TabBarController.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		022005F32A26040D0056E7BD /* SearchViewController */ = {
+			isa = PBXGroup;
+			children = (
+				022005BE2A25FFDD0056E7BD /* SearchViewController.swift */,
+			);
+			path = SearchViewController;
+			sourceTree = "<group>";
+		};
+		022005F42A26042C0056E7BD /* FavoriteViewController */ = {
+			isa = PBXGroup;
+			children = (
+				022005F52A2606920056E7BD /* FavoriteViewController.swift */,
+			);
+			path = FavoriteViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,9 +303,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				022005BF2A25FFDD0056E7BD /* ViewController.swift in Sources */,
+				022005BF2A25FFDD0056E7BD /* SearchViewController.swift in Sources */,
 				022005BB2A25FFDD0056E7BD /* AppDelegate.swift in Sources */,
 				022005BD2A25FFDD0056E7BD /* SceneDelegate.swift in Sources */,
+				022005F22A2603EB0056E7BD /* TabBarController.swift in Sources */,
+				022005F62A2606920056E7BD /* FavoriteViewController.swift in Sources */,
 				022005C52A25FFDD0056E7BD /* TestTaskFromRAY.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -431,7 +479,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PJYSX9RNA2;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TestTaskFromRAY/Info.plist;
+				INFOPLIST_FILE = TestTaskFromRAY/Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -459,7 +507,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PJYSX9RNA2;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TestTaskFromRAY/Info.plist;
+				INFOPLIST_FILE = TestTaskFromRAY/Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
