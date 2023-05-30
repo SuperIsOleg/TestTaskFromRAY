@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TabBarController: UITabBarController {
+final class TabBarController: UITabBarController {
     let searchViewController = SearchViewController()
     let favoriteViewController = FavoriteViewController()
     

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FavoriteViewController: UIViewController {
+final class FavoriteViewController: UIViewController {
     
     private lazy var favoriteView = FavoriteView()
     
