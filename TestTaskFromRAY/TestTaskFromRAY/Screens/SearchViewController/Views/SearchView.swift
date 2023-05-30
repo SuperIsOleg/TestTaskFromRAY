@@ -7,6 +7,11 @@
 
 import UIKit
 
+protocol SearchViewDelegate: AnyObject {
+    func searchAction()
+    func addToFavoriteAction()
+}
+
 final class SearchView: UIView {
     
     private let resultImageView: UIImageView = {
@@ -50,6 +55,8 @@ final class SearchView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+    
+    weak var delegate: SearchViewDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
