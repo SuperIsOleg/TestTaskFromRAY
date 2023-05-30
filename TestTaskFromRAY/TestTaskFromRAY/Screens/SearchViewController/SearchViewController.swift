@@ -18,8 +18,16 @@ final class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.searchView.delegate = self
     }
 
 
 }
 
+// MARK: - SearchViewDelegate
+extension SearchViewController: SearchViewDelegate {
+    func searchAction() { }
+    
+    func addToFavoriteAction() { }
+    
+}

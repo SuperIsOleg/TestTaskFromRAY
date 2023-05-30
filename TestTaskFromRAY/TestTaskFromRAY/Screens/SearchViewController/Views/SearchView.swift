@@ -98,6 +98,18 @@ final class SearchView: UIView {
             addFavoriteButton.leftAnchor.constraint(equalTo: self.searchButton.leftAnchor),
             addFavoriteButton.rightAnchor.constraint(equalTo: self.searchButton.rightAnchor),
         ])
-
+        
+        searchButton.addTarget(self, action: #selector(searchButtonTap), for: .touchUpInside)
+        addFavoriteButton.addTarget(self, action: #selector(addFavoriteButtonTap), for: .touchUpInside)
+    }
+    
+    @objc
+    private func searchButtonTap() {
+        self.delegate?.searchAction()
+    }
+    
+    @objc
+    private func addFavoriteButtonTap() {
+        self.delegate?.addToFavoriteAction()
     }
 }
