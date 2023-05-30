@@ -25,8 +25,8 @@ final class SearchView: UIView {
         return imageView
     }()
     
-    private let searchTextField: UITextField = {
-        let textField = UITextField()
+    private let searchTextField: BaseTextField = {
+        let textField = BaseTextField()
         textField.backgroundColor = .white
         textField.placeholder = "Search ..."
         textField.layer.cornerRadius = 6
@@ -49,6 +49,7 @@ final class SearchView: UIView {
     private let addFavoriteButton: UIButton = {
         let button = UIButton()
         button.setTitle("Add to favorite", for: .normal)
+        button.isEnabled = false
         var configure = UIButton.Configuration.filled()
         configure.buttonSize = .large
         button.configuration = configure
@@ -58,7 +59,7 @@ final class SearchView: UIView {
     
     internal weak var delegate: SearchViewDelegate?
     
-    internal var textField: UITextField {
+    internal var textField: BaseTextField {
         get {
             return searchTextField
         }

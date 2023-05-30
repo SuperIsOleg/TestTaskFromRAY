@@ -27,7 +27,10 @@ final class SearchViewController: UIViewController {
 
 // MARK: - SearchViewDelegate
 extension SearchViewController: SearchViewDelegate {
-    func searchAction() { }
+    func searchAction() {
+        guard let text = self.searchView.textField.text else { return }
+        self.searchView.textField.text = nil
+    }
     
     func addToFavoriteAction() { }
     
