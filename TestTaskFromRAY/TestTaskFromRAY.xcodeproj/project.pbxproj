@@ -21,6 +21,11 @@
 		022005FD2A261D830056E7BD /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022005FC2A261D830056E7BD /* SearchView.swift */; };
 		022006002A261EB50056E7BD /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022005FF2A261EB50056E7BD /* FavoriteView.swift */; };
 		022006062A26363C0056E7BD /* BaseTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022006052A26363C0056E7BD /* BaseTextField.swift */; };
+		0220060C2A263C3C0056E7BD /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0220060B2A263C3C0056E7BD /* NetworkConstants.swift */; };
+		0220060E2A263CA60056E7BD /* ApiProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0220060D2A263CA60056E7BD /* ApiProtocol.swift */; };
+		022006102A263D930056E7BD /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0220060F2A263D930056E7BD /* HTTPMethod.swift */; };
+		022006122A263E7D0056E7BD /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022006112A263E7D0056E7BD /* RequestError.swift */; };
+		022006142A263EF10056E7BD /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022006132A263EF10056E7BD /* HTTPClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +64,11 @@
 		022005FC2A261D830056E7BD /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		022005FF2A261EB50056E7BD /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
 		022006052A26363C0056E7BD /* BaseTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTextField.swift; sourceTree = "<group>"; };
+		0220060B2A263C3C0056E7BD /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
+		0220060D2A263CA60056E7BD /* ApiProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiProtocol.swift; sourceTree = "<group>"; };
+		0220060F2A263D930056E7BD /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		022006112A263E7D0056E7BD /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
+		022006132A263EF10056E7BD /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +123,7 @@
 				022005ED2A26032B0056E7BD /* Application */,
 				022005EE2A2603440056E7BD /* Resource */,
 				022005FA2A261D530056E7BD /* Network */,
+				022005FB2A261D600056E7BD /* Models */,
 				022005F02A2603990056E7BD /* Screens */,
 				022005F92A261D380056E7BD /* ViewModel */,
 				022005C32A25FFDD0056E7BD /* TestTaskFromRAY.xcdatamodeld */,
@@ -202,16 +213,19 @@
 		022005FA2A261D530056E7BD /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				022005FB2A261D600056E7BD /* Model */,
+				0220060A2A263C1A0056E7BD /* Constants */,
+				022006072A263BB00056E7BD /* Base */,
+				022006092A263BD00056E7BD /* Services */,
+				022006082A263BC00056E7BD /* Endpoints */,
 			);
 			path = Network;
 			sourceTree = "<group>";
 		};
-		022005FB2A261D600056E7BD /* Model */ = {
+		022005FB2A261D600056E7BD /* Models */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		022005FE2A261E9A0056E7BD /* Views */ = {
@@ -228,6 +242,39 @@
 				022006052A26363C0056E7BD /* BaseTextField.swift */,
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		022006072A263BB00056E7BD /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				0220060D2A263CA60056E7BD /* ApiProtocol.swift */,
+				0220060F2A263D930056E7BD /* HTTPMethod.swift */,
+				022006132A263EF10056E7BD /* HTTPClient.swift */,
+				022006112A263E7D0056E7BD /* RequestError.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		022006082A263BC00056E7BD /* Endpoints */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Endpoints;
+			sourceTree = "<group>";
+		};
+		022006092A263BD00056E7BD /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		0220060A2A263C1A0056E7BD /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				0220060B2A263C3C0056E7BD /* NetworkConstants.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -363,11 +410,16 @@
 				022006002A261EB50056E7BD /* FavoriteView.swift in Sources */,
 				022006062A26363C0056E7BD /* BaseTextField.swift in Sources */,
 				022005BF2A25FFDD0056E7BD /* SearchViewController.swift in Sources */,
+				0220060E2A263CA60056E7BD /* ApiProtocol.swift in Sources */,
 				022005BB2A25FFDD0056E7BD /* AppDelegate.swift in Sources */,
 				022005BD2A25FFDD0056E7BD /* SceneDelegate.swift in Sources */,
 				022005FD2A261D830056E7BD /* SearchView.swift in Sources */,
 				022005F22A2603EB0056E7BD /* TabBarController.swift in Sources */,
+				022006102A263D930056E7BD /* HTTPMethod.swift in Sources */,
+				022006122A263E7D0056E7BD /* RequestError.swift in Sources */,
+				022006142A263EF10056E7BD /* HTTPClient.swift in Sources */,
 				022005F62A2606920056E7BD /* FavoriteViewController.swift in Sources */,
+				0220060C2A263C3C0056E7BD /* NetworkConstants.swift in Sources */,
 				022005C52A25FFDD0056E7BD /* TestTaskFromRAY.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
