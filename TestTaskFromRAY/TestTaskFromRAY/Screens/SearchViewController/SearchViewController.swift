@@ -8,10 +8,16 @@
 import UIKit
 
 class SearchViewController: UIViewController {
+    
+    private lazy var searchView = SearchView()
+    
+    override func loadView() {
+        super.loadView()
+        self.view = searchView
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .red
     }
 
 
