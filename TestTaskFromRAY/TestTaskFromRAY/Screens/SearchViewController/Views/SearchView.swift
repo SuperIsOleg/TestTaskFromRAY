@@ -56,7 +56,13 @@ final class SearchView: UIView {
         return button
     }()
     
-    weak var delegate: SearchViewDelegate?
+    internal weak var delegate: SearchViewDelegate?
+    
+    internal var textField: UITextField {
+        get {
+            return searchTextField
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)

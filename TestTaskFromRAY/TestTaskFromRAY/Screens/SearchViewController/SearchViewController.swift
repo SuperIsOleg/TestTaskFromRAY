@@ -15,13 +15,14 @@ final class SearchViewController: UIViewController {
         super.loadView()
         self.view = searchView
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.searchView.delegate = self
+        self.searchView.textField.delegate = self
     }
-
-
+    
+    
 }
 
 // MARK: - SearchViewDelegate
@@ -30,4 +31,12 @@ extension SearchViewController: SearchViewDelegate {
     
     func addToFavoriteAction() { }
     
+}
+
+// MARK: - UITextFieldDelegate
+extension SearchViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
