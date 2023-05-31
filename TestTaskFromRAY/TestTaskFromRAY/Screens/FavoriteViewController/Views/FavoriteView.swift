@@ -11,7 +11,7 @@ final class FavoriteView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .brown
+        self.backgroundColor = .systemGray5
     }
     
     required init?(coder: NSCoder) {

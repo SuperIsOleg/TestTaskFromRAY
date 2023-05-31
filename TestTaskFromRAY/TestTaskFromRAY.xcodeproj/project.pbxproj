@@ -30,6 +30,10 @@
 		0250509C2A27274D0039A19C /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0250509B2A27274D0039A19C /* ImageService.swift */; };
 		025050A02A2729A00039A19C /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0250509F2A2729A00039A19C /* SearchViewModel.swift */; };
 		025050A32A2730090039A19C /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025050A22A2730090039A19C /* UIViewController+Extension.swift */; };
+		025050AA2A277AB60039A19C /* ImageModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025050A82A277AB60039A19C /* ImageModel+CoreDataClass.swift */; };
+		025050AB2A277AB60039A19C /* ImageModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025050A92A277AB60039A19C /* ImageModel+CoreDataProperties.swift */; };
+		025050AE2A277E2C0039A19C /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025050AD2A277E2C0039A19C /* CoreDataManager.swift */; };
+		025050B32A2781060039A19C /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025050B22A2781060039A19C /* FavoriteViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +81,10 @@
 		0250509B2A27274D0039A19C /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		0250509F2A2729A00039A19C /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		025050A22A2730090039A19C /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		025050A82A277AB60039A19C /* ImageModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageModel+CoreDataClass.swift"; sourceTree = "<group>"; };
+		025050A92A277AB60039A19C /* ImageModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		025050AD2A277E2C0039A19C /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		025050B22A2781060039A19C /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,11 +137,10 @@
 			children = (
 				022005ED2A26032B0056E7BD /* Application */,
 				022005EE2A2603440056E7BD /* Resource */,
+				025050AC2A277AE80039A19C /* DataBase */,
 				022006042A2636230056E7BD /* Other */,
 				022005FA2A261D530056E7BD /* Network */,
-				022005FB2A261D600056E7BD /* Models */,
 				022005F02A2603990056E7BD /* Screens */,
-				022005F92A261D380056E7BD /* ViewModel */,
 				022005C32A25FFDD0056E7BD /* TestTaskFromRAY.xcdatamodeld */,
 			);
 			path = TestTaskFromRAY;
@@ -189,6 +196,7 @@
 		022005F32A26040D0056E7BD /* SearchViewController */ = {
 			isa = PBXGroup;
 			children = (
+				022005F92A261D380056E7BD /* ViewModel */,
 				022005F72A261CF60056E7BD /* Views */,
 				022005BE2A25FFDD0056E7BD /* SearchViewController.swift */,
 			);
@@ -198,6 +206,7 @@
 		022005F42A26042C0056E7BD /* FavoriteViewController */ = {
 			isa = PBXGroup;
 			children = (
+				025050B12A2780EC0039A19C /* ViewModel */,
 				022005FE2A261E9A0056E7BD /* Views */,
 				022005F52A2606920056E7BD /* FavoriteViewController.swift */,
 			);
@@ -229,13 +238,6 @@
 				022006092A263BD00056E7BD /* Services */,
 			);
 			path = Network;
-			sourceTree = "<group>";
-		};
-		022005FB2A261D600056E7BD /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		022005FE2A261E9A0056E7BD /* Views */ = {
@@ -295,6 +297,40 @@
 				025050A22A2730090039A19C /* UIViewController+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		025050AC2A277AE80039A19C /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				025050AF2A277E3A0039A19C /* Models */,
+				025050AD2A277E2C0039A19C /* CoreDataManager.swift */,
+			);
+			path = DataBase;
+			sourceTree = "<group>";
+		};
+		025050AF2A277E3A0039A19C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				025050B02A277E820039A19C /* ImageModel */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		025050B02A277E820039A19C /* ImageModel */ = {
+			isa = PBXGroup;
+			children = (
+				025050A82A277AB60039A19C /* ImageModel+CoreDataClass.swift */,
+				025050A92A277AB60039A19C /* ImageModel+CoreDataProperties.swift */,
+			);
+			path = ImageModel;
+			sourceTree = "<group>";
+		};
+		025050B12A2780EC0039A19C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				025050B22A2781060039A19C /* FavoriteViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -437,12 +473,16 @@
 				022005BD2A25FFDD0056E7BD /* SceneDelegate.swift in Sources */,
 				025050A32A2730090039A19C /* UIViewController+Extension.swift in Sources */,
 				022005FD2A261D830056E7BD /* SearchView.swift in Sources */,
+				025050B32A2781060039A19C /* FavoriteViewModel.swift in Sources */,
 				022005F22A2603EB0056E7BD /* TabBarController.swift in Sources */,
 				022006102A263D930056E7BD /* HTTPMethod.swift in Sources */,
+				025050AE2A277E2C0039A19C /* CoreDataManager.swift in Sources */,
 				022006122A263E7D0056E7BD /* RequestError.swift in Sources */,
+				025050AA2A277AB60039A19C /* ImageModel+CoreDataClass.swift in Sources */,
 				022006142A263EF10056E7BD /* HTTPClient.swift in Sources */,
 				022005F62A2606920056E7BD /* FavoriteViewController.swift in Sources */,
 				0220060C2A263C3C0056E7BD /* NetworkConstants.swift in Sources */,
+				025050AB2A277AB60039A19C /* ImageModel+CoreDataProperties.swift in Sources */,
 				022005C52A25FFDD0056E7BD /* TestTaskFromRAY.xcdatamodeld in Sources */,
 				0250509A2A2723F40039A19C /* ImageEndpoint.swift in Sources */,
 			);

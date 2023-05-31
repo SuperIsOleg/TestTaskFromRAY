@@ -10,6 +10,7 @@ import UIKit
 final class FavoriteViewController: UIViewController {
     
     private lazy var favoriteView = FavoriteView()
+    private let viewModel = FavoriteViewModel()
     
     override func loadView() {
         super.loadView()
@@ -18,7 +19,7 @@ final class FavoriteViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.viewModel.getAllItems()
     }
-
 
 }
