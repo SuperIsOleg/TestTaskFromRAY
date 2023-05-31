@@ -21,6 +21,7 @@ final class SearchView: UIView {
         imageView.backgroundColor = .white
         imageView.layer.borderWidth = 1
         imageView.layer.borderColor = UIColor.black.cgColor
+        imageView.layer.masksToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()

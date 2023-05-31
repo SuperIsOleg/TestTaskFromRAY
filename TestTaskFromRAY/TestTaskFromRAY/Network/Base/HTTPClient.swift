@@ -8,23 +8,22 @@
 import Foundation
 
 protocol HTTPClient {
-    func request<T: ApiProtocol, U: Decodable>(decoder: JSONDecoder, requestApi: T, model: U.Type) async -> Result<U, RequestError>
+    func downlodRequest<T: ApiProtocol>(requestApi: T) async -> Result<Data, RequestError>
 }
 
 extension HTTPClient {
     /**
      Complete Http request with parameters.
      - parameter T: api configuration of request including url, parameters, method, etc
-     - parameter U: model to decode result of reponse
      */
-    func request<T: ApiProtocol, U: Decodable>(
-        decoder: JSONDecoder = JSONDecoder(),
-        requestApi: T,
-        model: U.Type) async -> Result<U, RequestError> {
-            
-            guard let url = URL(string: requestApi.baseURL) else {
+
+    func downlodRequest<T: ApiProtocol>(
+        requestApi: T) async -> Result<Data, RequestError> {
+            let urlPath = requestApi.baseURL + requestApi.path
+            guard let url = URL(string: urlPath) else {
                 return .failure(.invalidURL)
             }
+            
             var request = URLRequest(url: url)
             request.httpMethod = requestApi.method.rawValue
             request.allHTTPHeaderFields = requestApi.headers
@@ -40,10 +39,7 @@ extension HTTPClient {
                 }
                 switch response.statusCode {
                 case (200...299):
-                    guard let decodedResponse = try? decoder.decode(model, from: data) else {
-                        return .failure(.decode)
-                    }
-                    return .success(decodedResponse)
+                    return .success(data)
                 case (400...499):
                     return .failure(.message(message: "[\(response.statusCode)]  \(HTTPURLResponse.localizedString(forStatusCode: response.statusCode))"))
                 case (500...599):

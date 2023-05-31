@@ -8,17 +8,17 @@
 import Foundation
 
 protocol SearchViewModelProtocol {
-    func getImage(height: CGFloat, width: CGFloat, text: String) async -> Result<ImageModel, RequestError>
+    func getImage(height: CGFloat, width: CGFloat, text: String) async -> Result<Data, RequestError>
 }
 
 final class SearchViewModel: SearchViewModelProtocol {
     private let imageService = ImageService()
     
-    func getImage(height: CGFloat, width: CGFloat, text: String) async -> Result<ImageModel, RequestError> {
+    func getImage(height: CGFloat, width: CGFloat, text: String) async -> Result<Data, RequestError> {
      let result = await imageService.getImage(height: height, width: width, text: text)
         switch result {
-        case .success(let model):
-            return .success(model)
+        case .success(let data):
+            return .success(data)
         case .failure(let error):
             return .failure(error)
         }

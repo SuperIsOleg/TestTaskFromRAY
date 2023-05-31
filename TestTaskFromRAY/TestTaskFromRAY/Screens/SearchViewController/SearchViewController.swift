@@ -31,8 +31,8 @@ final class SearchViewController: UIViewController {
                                                  width: imageFrame.width,
                                                  text: text)
             switch result {
-            case .success(let model):
-                self.searchView.setImage(data: model.imageData)
+            case .success(let data):
+                self.searchView.setImage(data: data)
             case .failure(let error):
                 self.showError(error.localizedDescription, nil, okCompletion: {})
             }
@@ -44,7 +44,9 @@ final class SearchViewController: UIViewController {
 // MARK: - SearchViewDelegate
 extension SearchViewController: SearchViewDelegate {
     func searchAction() {
-        guard let text = self.searchView.textField.text else { return }
+        guard let text = self.searchView.textField.text, !text.isEmpty else {
+            return self.showError("the text must be in english and not start with a space", "Enter text", okCompletion: {})
+        }
         self.getImage(text: text)
         self.searchView.textField.resignFirstResponder()
         self.searchView.textField.text = nil

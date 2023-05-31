@@ -15,7 +15,7 @@ extension ImageEndpoint: ApiProtocol {
     var path: String {
         switch self {
         case .getImage(let height, let width, let text):
-            return "/\(height)x\(width)&text=\(text)"
+            return "/\(width)x\(height)/f29ef2/de24de&text=\(text)"
         }
     }
     
