@@ -33,7 +33,7 @@ final class SearchViewController: UIViewController {
                                                        text: text)
             switch result {
             case .success(let data):
-                self.searchView.setImage(data: data)
+                self.viewModel.imageData = data
                 completion()
             case .failure(let error):
                 self.showAlert("the text must be in english and not contain a space",
@@ -53,9 +53,11 @@ extension SearchViewController: SearchViewDelegate {
         
         if self.viewModel.requestLimi != 0  {
             self.getImage(text: text, completion: {
+                guard let data = self.viewModel.imageData else { return }
+                self.searchView.setImage(data: data)
                 self.searchView.setAddFavoriteButtonEnabled(ifNeeded: self.searchView.imageView.image == nil)
-                self.viewModel.requestLimi -= 1
             })
+            self.viewModel.requestLimi -= 1
         } else {
             self.showAlert("Request limit exceeded", nil, okCompletion: {})
         }
@@ -67,6 +69,7 @@ extension SearchViewController: SearchViewDelegate {
     }
     
     func addToFavoriteAction() {
+        self.viewModel.imageData = nil
         self.searchView.setImage(data: Data())
         self.searchView.setAddFavoriteButtonEnabled(ifNeeded: true)
         self.showAlert("Picture successfully added to favorites")
