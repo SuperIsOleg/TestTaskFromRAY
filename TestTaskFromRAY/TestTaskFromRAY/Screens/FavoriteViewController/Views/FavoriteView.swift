@@ -12,6 +12,7 @@ final class FavoriteView: UIView {
     private let favoriteTableView: UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = .systemGray5
+        tableView.separatorStyle = .none
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()

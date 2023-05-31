@@ -143,7 +143,7 @@
 				022006042A2636230056E7BD /* Other */,
 				022005FA2A261D530056E7BD /* Network */,
 				022005F02A2603990056E7BD /* Screens */,
-				022005C32A25FFDD0056E7BD /* TestTaskFromRAY.xcdatamodeld */,
+				025050B62A279EB40039A19C /* TabBar */,
 			);
 			path = TestTaskFromRAY;
 			sourceTree = "<group>";
@@ -190,7 +190,6 @@
 			children = (
 				022005F32A26040D0056E7BD /* SearchViewController */,
 				022005F42A26042C0056E7BD /* FavoriteViewController */,
-				022005F12A2603EB0056E7BD /* TabBarController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -307,6 +306,7 @@
 			children = (
 				025050AF2A277E3A0039A19C /* Models */,
 				025050AD2A277E2C0039A19C /* CoreDataManager.swift */,
+				022005C32A25FFDD0056E7BD /* TestTaskFromRAY.xcdatamodeld */,
 			);
 			path = DataBase;
 			sourceTree = "<group>";
@@ -334,6 +334,14 @@
 				025050B22A2781060039A19C /* FavoriteViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		025050B62A279EB40039A19C /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				022005F12A2603EB0056E7BD /* TabBarController.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

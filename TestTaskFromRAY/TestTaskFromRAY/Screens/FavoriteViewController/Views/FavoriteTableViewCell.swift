@@ -33,13 +33,15 @@ final class FavoriteTableViewCell: UITableViewCell {
     
     private func setupLayout() {
         self.selectionStyle = .none
+        self.backgroundColor = .systemGray5
         self.contentView.addSubview(favoriteImageView)
         
         NSLayoutConstraint.activate([
             // setup constraints for favoriteImageView
-            favoriteImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 50),
-            favoriteImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 25),
-            favoriteImageView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -25),
+            favoriteImageView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10),
+            favoriteImageView.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 25),
+            favoriteImageView.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -25),
+            favoriteImageView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -10),
             favoriteImageView.heightAnchor.constraint(equalToConstant: 150),
         ])
     }
