@@ -26,6 +26,15 @@ final class SearchView: UIView {
         return imageView
     }()
     
+    private let limitedRequestLabel: UILabel = {
+       let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = .black
+        label.textAlignment = .left
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     private let searchTextField: BaseTextField = {
         let textField = BaseTextField()
         textField.backgroundColor = .white
@@ -40,6 +49,7 @@ final class SearchView: UIView {
     private let searchButton: UIButton = {
         let button = UIButton()
         button.setTitle("Search", for: .normal)
+        button.isEnabled = false
         var configure = UIButton.Configuration.filled()
         configure.buttonSize = .large
         button.configuration = configure
@@ -85,6 +95,7 @@ final class SearchView: UIView {
         self.backgroundColor = .systemGray5
         
         self.addSubview(resultImageView)
+        self.addSubview(limitedRequestLabel)
         self.addSubview(searchTextField)
         self.addSubview(searchButton)
         self.addSubview(addFavoriteButton)
@@ -96,8 +107,12 @@ final class SearchView: UIView {
             resultImageView.rightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.rightAnchor, constant: -25),
             resultImageView.heightAnchor.constraint(equalToConstant: 150),
             
+            // setup constraints for limitedRequestLabel
+            limitedRequestLabel.topAnchor.constraint(equalTo: self.resultImageView.bottomAnchor, constant: 15),
+            limitedRequestLabel.leftAnchor.constraint(equalTo: self.resultImageView.leftAnchor),
+            
             // setup constraints for searchTextField
-            searchTextField.topAnchor.constraint(equalTo: self.resultImageView.bottomAnchor, constant: 25),
+            searchTextField.topAnchor.constraint(equalTo: self.limitedRequestLabel.bottomAnchor, constant: 25),
             searchTextField.leftAnchor.constraint(equalTo: self.resultImageView.leftAnchor),
             searchTextField.rightAnchor.constraint(equalTo: self.resultImageView.rightAnchor),
             searchTextField.heightAnchor.constraint(equalToConstant: 35),
@@ -121,8 +136,16 @@ final class SearchView: UIView {
         self.resultImageView.image = UIImage(data: data)
     }
     
+    internal func setSearchButtonEnabled(ifNeeded: Bool) {
+        self.searchButton.isEnabled = !ifNeeded
+    }
+    
     internal func setAddFavoriteButtonEnabled(ifNeeded: Bool) {
         self.addFavoriteButton.isEnabled = !ifNeeded
+    }
+    
+    internal func setLimit(count: Int) {
+        self.limitedRequestLabel.text = "Request limit: \(count)"
     }
     
     @objc

@@ -13,6 +13,7 @@ protocol SearchViewModelProtocol {
 
 final class SearchViewModel: SearchViewModelProtocol {
     private let imageService = ImageService()
+    internal var requestLimi = 5
     
     func getImage(height: CGFloat, width: CGFloat, text: String) async -> Result<Data, RequestError> {
      let result = await imageService.getImage(height: height, width: width, text: text)

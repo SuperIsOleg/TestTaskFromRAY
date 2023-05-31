@@ -21,6 +21,7 @@ final class SearchViewController: UIViewController {
         super.viewDidLoad()
         self.searchView.delegate = self
         self.searchView.textField.delegate = self
+        self.searchView.setLimit(count: self.viewModel.requestLimi)
     }
     
     private func getImage(text: String, completion: @escaping () -> Void) {
@@ -28,8 +29,8 @@ final class SearchViewController: UIViewController {
         
         Task(priority: .background, operation: {
             let result = await self.viewModel.getImage(height: imageFrame.height,
-                                                 width: imageFrame.width,
-                                                 text: text)
+                                                       width: imageFrame.width,
+                                                       text: text)
             switch result {
             case .success(let data):
                 self.searchView.setImage(data: data)
@@ -49,10 +50,19 @@ extension SearchViewController: SearchViewDelegate {
         guard let text = self.searchView.textField.text, !text.isEmpty else {
             return self.showAlert("the text must be in english and not contain a space", "Enter text", okCompletion: {})
         }
-        self.getImage(text: text, completion: {
-            self.searchView.setAddFavoriteButtonEnabled(ifNeeded: self.searchView.imageView.image == nil)
-        })
+        
+        if self.viewModel.requestLimi != 0  {
+            self.getImage(text: text, completion: {
+                self.searchView.setAddFavoriteButtonEnabled(ifNeeded: self.searchView.imageView.image == nil)
+                self.viewModel.requestLimi -= 1
+            })
+        } else {
+            self.showAlert("Request limit exceeded", nil, okCompletion: {})
+        }
+        
+        self.searchView.setLimit(count: self.viewModel.requestLimi)
         self.searchView.textField.resignFirstResponder()
+        self.searchView.setSearchButtonEnabled(ifNeeded: true)
         self.searchView.textField.text = nil
     }
     
@@ -66,6 +76,13 @@ extension SearchViewController: SearchViewDelegate {
 
 // MARK: - UITextFieldDelegate
 extension SearchViewController: UITextFieldDelegate {
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        guard let text = textField.text, !text.isEmpty else {
+            return self.searchView.setSearchButtonEnabled(ifNeeded: true)
+        }
+        self.searchView.setSearchButtonEnabled(ifNeeded: false)
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
