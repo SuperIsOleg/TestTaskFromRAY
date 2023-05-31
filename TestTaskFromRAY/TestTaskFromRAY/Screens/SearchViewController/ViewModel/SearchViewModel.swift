@@ -8,7 +8,7 @@
 import Foundation
 
 protocol SearchViewModelProtocol {
-    func getImage(height: CGFloat, width: CGFloat, text: String) async -> Result<Data, RequestError>
+    func getImage(height: CGFloat, width: CGFloat, text: String) async -> (Result<Data, RequestError>, url: URL?)
     func createItem()
 }
 
@@ -17,20 +17,17 @@ final class SearchViewModel: SearchViewModelProtocol {
     private let coreDataManager = CoreDataManager.shared
     internal var requestLimi = 5
     internal var imageData: Data?
+    internal var imageUrl: URL?
     
-   internal func getImage(height: CGFloat, width: CGFloat, text: String) async -> Result<Data, RequestError> {
+    internal func getImage(height: CGFloat, width: CGFloat, text: String) async -> (Result<Data, RequestError>, url: URL?) {
      let result = await imageService.getImage(height: height, width: width, text: text)
-        switch result {
-        case .success(let data):
-            return .success(data)
-        case .failure(let error):
-            return .failure(error)
-        }
+        return result
     }
     
     internal func createItem() {
-        guard let data = self.imageData else { return }
-        self.coreDataManager.createItem(data: data)
+        guard let data = self.imageData,
+              let url = self.imageUrl else { return }
+        self.coreDataManager.createItem(data: data,imageUrl: url)
     }
     
 }

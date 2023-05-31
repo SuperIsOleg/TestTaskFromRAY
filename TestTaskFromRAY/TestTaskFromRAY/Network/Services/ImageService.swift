@@ -8,11 +8,11 @@
 import Foundation
 
 protocol ImageServiceProtocol {
-    func getImage(height: CGFloat, width: CGFloat, text: String) async -> Result<Data, RequestError>
+    func getImage(height: CGFloat, width: CGFloat, text: String) async -> (Result<Data, RequestError>, url: URL?)
 }
 
 struct ImageService: HTTPClient, ImageServiceProtocol {
-    func getImage(height: CGFloat, width: CGFloat, text: String) async -> Result<Data, RequestError> {
+    func getImage(height: CGFloat, width: CGFloat, text: String) async -> (Result<Data, RequestError>, url: URL?) {
         return await downlodRequest(requestApi: ImageEndpoint.getImage(height: height,
                                                                 width: width,
                                                                 text: text))

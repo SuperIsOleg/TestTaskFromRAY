@@ -31,9 +31,10 @@ final class SearchViewController: UIViewController {
             let result = await self.viewModel.getImage(height: imageFrame.height,
                                                        width: imageFrame.width,
                                                        text: text)
-            switch result {
+            switch result.0 {
             case .success(let data):
                 self.viewModel.imageData = data
+                self.viewModel.imageUrl = result.url
                 completion()
             case .failure(let error):
                 self.showAlert("the text must be in english and not contain a space",

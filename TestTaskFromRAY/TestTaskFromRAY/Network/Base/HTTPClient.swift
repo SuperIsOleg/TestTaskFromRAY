@@ -8,7 +8,7 @@
 import Foundation
 
 protocol HTTPClient {
-    func downlodRequest<T: ApiProtocol>(requestApi: T) async -> Result<Data, RequestError>
+    func downlodRequest<T: ApiProtocol>(requestApi: T) async -> (Result<Data, RequestError>, url: URL?)
 }
 
 extension HTTPClient {
@@ -18,10 +18,10 @@ extension HTTPClient {
      */
 
     func downlodRequest<T: ApiProtocol>(
-        requestApi: T) async -> Result<Data, RequestError> {
+        requestApi: T) async -> (Result<Data, RequestError>, url: URL?) {
             let urlPath = requestApi.baseURL + requestApi.path
             guard let url = URL(string: urlPath) else {
-                return .failure(.invalidURL)
+                return (.failure(.invalidURL), nil)
             }
             
             var request = URLRequest(url: url)
@@ -35,20 +35,20 @@ extension HTTPClient {
             do {
                 let (data, response) = try await URLSession.shared.data(for: request)
                 guard let response = response as? HTTPURLResponse else {
-                    return .failure(.noResponse)
+                    return (.failure(.noResponse), nil)
                 }
                 switch response.statusCode {
                 case (200...299):
-                    return .success(data)
+                    return (.success(data), response.url)
                 case (400...499):
-                    return .failure(.message(message: "[\(response.statusCode)]  \(HTTPURLResponse.localizedString(forStatusCode: response.statusCode))"))
+                    return (.failure(.message(message: "[\(response.statusCode)]  \(HTTPURLResponse.localizedString(forStatusCode: response.statusCode))")), nil)
                 case (500...599):
-                    return .failure(.message(message: "[\(response.statusCode)]  \(HTTPURLResponse.localizedString(forStatusCode: response.statusCode))"))
+                    return (.failure(.message(message: "[\(response.statusCode)]  \(HTTPURLResponse.localizedString(forStatusCode: response.statusCode))")), nil)
                 default:
-                    return .failure(.message(message: HTTPURLResponse.localizedString(forStatusCode: response.statusCode)))
+                    return (.failure(.message(message: HTTPURLResponse.localizedString(forStatusCode: response.statusCode))), nil)
                 }
             } catch {
-                return .failure(.unknown)
+                return (.failure(.unknown), nil)
             }
         }
 }

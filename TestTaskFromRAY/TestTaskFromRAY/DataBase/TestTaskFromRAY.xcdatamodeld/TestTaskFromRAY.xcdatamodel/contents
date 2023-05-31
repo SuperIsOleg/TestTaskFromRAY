@@ -3,5 +3,6 @@
     <entity name="ImageModel" representedClassName="ImageModel" syncable="YES">
         <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="imageData" optional="YES" attributeType="Binary"/>
+        <attribute name="imageUrl" optional="YES" attributeType="URI"/>
     </entity>
 </model>

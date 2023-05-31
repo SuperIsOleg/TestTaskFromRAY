@@ -16,6 +16,7 @@ extension ImageModel {
         return NSFetchRequest<ImageModel>(entityName: "ImageModel")
     }
 
+    @NSManaged public var imageUrl: URL?
     @NSManaged public var imageData: Data?
     @NSManaged public var createdAt: Date?
 

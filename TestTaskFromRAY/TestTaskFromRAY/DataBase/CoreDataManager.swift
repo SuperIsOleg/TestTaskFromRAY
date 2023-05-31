@@ -22,9 +22,10 @@ class CoreDataManager {
         }
     }
     
-    internal func createItem(data: Data) {
+    internal func createItem(data: Data, imageUrl: URL) {
         let newItem = ImageModel(context: self.context)
         newItem.imageData = data
+        newItem.imageUrl = imageUrl
         newItem.createdAt = Date()
         
         do {
