@@ -140,10 +140,10 @@
 				022005ED2A26032B0056E7BD /* Application */,
 				022005EE2A2603440056E7BD /* Resource */,
 				025050AC2A277AE80039A19C /* DataBase */,
-				022006042A2636230056E7BD /* Other */,
 				022005FA2A261D530056E7BD /* Network */,
 				022005F02A2603990056E7BD /* Screens */,
 				025050B62A279EB40039A19C /* TabBar */,
+				022006042A2636230056E7BD /* Other */,
 			);
 			path = TestTaskFromRAY;
 			sourceTree = "<group>";

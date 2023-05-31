@@ -40,10 +40,7 @@ extension FavoriteViewController: UITableViewDelegate {
 
 // MARK: - UITableViewDataSource
 extension FavoriteViewController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let viewModel = self.viewModel.imageModel else { return 0 }
         return viewModel.count
@@ -52,10 +49,12 @@ extension FavoriteViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: FavoriteTableViewCell.reuseIdentifier,
                                                        for: indexPath) as? FavoriteTableViewCell,
-              let imageModels = self.viewModel.imageModel else { return UITableViewCell() }
-        let imageModel = imageModels[indexPath.row]
+              let imageModelArray = self.viewModel.imageModel else { return UITableViewCell() }
+        let imageModel = imageModelArray[indexPath.row]
         
         cell.configure(model: imageModel)
+        cell.indexPath = indexPath
+        cell.delegate = self
         return cell
     }
     
@@ -66,4 +65,15 @@ extension FavoriteViewController: FavoriteViewModelDelegate {
     func reloadData() {
         self.favoriteView.tableView.reloadData()
     }
+}
+
+extension FavoriteViewController: FavoriteTableViewCellDelegate {
+    func deleteButtonAction(indexPath: IndexPath?) {
+        guard let indexPath = indexPath,
+        var imageModelArray = self.viewModel.imageModel else { return }
+        let imageModel = imageModelArray[indexPath.row]
+        self.viewModel.imageModel?.remove(at: indexPath.row)
+        self.viewModel.deleteItem(model: imageModel)
+    }
+    
 }

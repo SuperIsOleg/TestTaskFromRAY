@@ -9,6 +9,7 @@ import Foundation
 
 protocol FavoriteViewModelProtocol {
     func getAllItems()
+    func deleteItem(model: ImageModel)
 }
 
 protocol FavoriteViewModelDelegate: AnyObject {
@@ -16,6 +17,7 @@ protocol FavoriteViewModelDelegate: AnyObject {
 }
 
 final class FavoriteViewModel: FavoriteViewModelProtocol {
+
     private let coreDataManager = CoreDataManager.shared
     internal var imageModel: [ImageModel]? {
         didSet {
@@ -32,6 +34,10 @@ final class FavoriteViewModel: FavoriteViewModelProtocol {
         case .failure(let error):
             print(error.localizedDescription)
         }
+    }
+    
+   internal func deleteItem(model: ImageModel) {
+       self.coreDataManager.deleteItem(item: model)
     }
     
 }
