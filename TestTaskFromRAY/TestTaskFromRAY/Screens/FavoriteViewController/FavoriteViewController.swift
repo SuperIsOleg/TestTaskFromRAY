@@ -40,7 +40,7 @@ extension FavoriteViewController: UITableViewDelegate {
 
 // MARK: - UITableViewDataSource
 extension FavoriteViewController: UITableViewDataSource {
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let viewModel = self.viewModel.imageModel else { return 0 }
         return viewModel.count
@@ -55,6 +55,7 @@ extension FavoriteViewController: UITableViewDataSource {
         cell.configure(model: imageModel)
         cell.indexPath = indexPath
         cell.delegate = self
+        cell.textView.delegate = self
         return cell
     }
     
@@ -67,13 +68,22 @@ extension FavoriteViewController: FavoriteViewModelDelegate {
     }
 }
 
+// MARK: - FavoriteTableViewCellDelegate
 extension FavoriteViewController: FavoriteTableViewCellDelegate {
     func deleteButtonAction(indexPath: IndexPath?) {
         guard let indexPath = indexPath,
-        var imageModelArray = self.viewModel.imageModel else { return }
+              let imageModelArray = self.viewModel.imageModel else { return }
         let imageModel = imageModelArray[indexPath.row]
         self.viewModel.imageModel?.remove(at: indexPath.row)
         self.viewModel.deleteItem(model: imageModel)
     }
     
+}
+
+// MARK: - UITextViewDelegate
+extension FavoriteViewController: UITextViewDelegate {
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
+        UIApplication.shared.open(URL)
+        return false
+    }
 }
