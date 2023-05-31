@@ -65,6 +65,12 @@ final class SearchView: UIView {
         }
     }
     
+    internal var imageView: UIImageView {
+        get {
+            return resultImageView
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.configureLayout()
@@ -108,6 +114,10 @@ final class SearchView: UIView {
         
         searchButton.addTarget(self, action: #selector(searchButtonTap), for: .touchUpInside)
         addFavoriteButton.addTarget(self, action: #selector(addFavoriteButtonTap), for: .touchUpInside)
+    }
+    
+    internal func setImage(data: Data) {
+        self.resultImageView.image = UIImage(data: data)
     }
     
     @objc

@@ -47,7 +47,7 @@ extension HTTPClient {
                 case (400...499):
                     return .failure(.message(message: "[\(response.statusCode)]  \(HTTPURLResponse.localizedString(forStatusCode: response.statusCode))"))
                 case (500...599):
-                    return .failure(.message(message: HTTPURLResponse.localizedString(forStatusCode: response.statusCode)))
+                    return .failure(.message(message: "[\(response.statusCode)]  \(HTTPURLResponse.localizedString(forStatusCode: response.statusCode))"))
                 default:
                     return .failure(.message(message: HTTPURLResponse.localizedString(forStatusCode: response.statusCode)))
                 }
