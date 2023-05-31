@@ -22,6 +22,10 @@ final class FavoriteViewController: UIViewController {
         self.favoriteView.tableView.delegate = self
         self.favoriteView.tableView.dataSource = self
         self.favoriteView.tableView.register(FavoriteTableViewCell.self, forCellReuseIdentifier: FavoriteTableViewCell.reuseIdentifier)
+        self.viewModel.delegate = self
+    }
+    
+    internal func getAllItems() {
         self.viewModel.getAllItems()
     }
     
@@ -55,5 +59,11 @@ extension FavoriteViewController: UITableViewDataSource {
         return cell
     }
     
-    
+}
+
+// MARK: - FavoriteViewModelDelegate
+extension FavoriteViewController: FavoriteViewModelDelegate {
+    func reloadData() {
+        self.favoriteView.tableView.reloadData()
+    }
 }

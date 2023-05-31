@@ -20,14 +20,23 @@ final class TabBarController: UITabBarController {
     private func prepareTabBarItems() {
         searchViewController.tabBarItem = UITabBarItem(title: "Search",
                                                        image: UIImage(systemName: "magnifyingglass.circle"),
-                                                       selectedImage: UIImage(systemName: "magnifyingglass.circle.fill"))
+                                                       tag: 0)
         favoriteViewController.tabBarItem = UITabBarItem(title: "Favorite",
-                                                      image: UIImage(systemName: "star"),
-                                                      selectedImage:UIImage(systemName: "star.fill"))
-      
+                                                         image: UIImage(systemName: "star"),
+                                                         tag: 1)
+        
         self.viewControllers = [
             searchViewController, favoriteViewController
         ]
+    }
+    
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        switch item.tag {
+        case 1:
+            self.favoriteViewController.getAllItems()
+        default:
+            break
+        }
     }
     
 }

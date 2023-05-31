@@ -11,9 +11,18 @@ protocol FavoriteViewModelProtocol {
     func getAllItems()
 }
 
+protocol FavoriteViewModelDelegate: AnyObject {
+    func reloadData()
+}
+
 final class FavoriteViewModel: FavoriteViewModelProtocol {
     private let coreDataManager = CoreDataManager.shared
-    internal var imageModel: [ImageModel]?
+    internal var imageModel: [ImageModel]? {
+        didSet {
+            self.delegate?.reloadData()
+        }
+    }
+    internal weak var delegate: FavoriteViewModelDelegate?
     
     internal func getAllItems() {
       let result = self.coreDataManager.getAllItems()
