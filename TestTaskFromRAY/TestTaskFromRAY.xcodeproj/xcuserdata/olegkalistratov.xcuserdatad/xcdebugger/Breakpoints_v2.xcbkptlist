@@ -103,16 +103,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "06720FA3-7B8B-440B-BEF8-6B8FB6272893"
+            uuid = "6537E097-9A72-4096-A410-72E3D17E41BE"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TestTaskFromRAY/Screens/FavoriteViewController/ViewModel/FavoriteViewModel.swift"
+            filePath = "TestTaskFromRAY/Screens/FavoriteViewController/FavoriteViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
-            landmarkName = "getAllItems()"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

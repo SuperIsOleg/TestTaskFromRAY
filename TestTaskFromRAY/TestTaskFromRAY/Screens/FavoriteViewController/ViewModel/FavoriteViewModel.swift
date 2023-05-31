@@ -13,7 +13,7 @@ protocol FavoriteViewModelProtocol {
 
 final class FavoriteViewModel: FavoriteViewModelProtocol {
     private let coreDataManager = CoreDataManager.shared
-    internal var imageModel = [ImageModel]()
+    internal var imageModel: [ImageModel]?
     
     internal func getAllItems() {
       let result = self.coreDataManager.getAllItems()
