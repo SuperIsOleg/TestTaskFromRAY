@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIViewController {
-    func showError(_ message: String, _ title: String? = nil, okCompletion: @escaping () -> Void = {}) {
+    func showAlert(_ message: String, _ title: String? = nil, okCompletion: @escaping () -> Void = {}) {
         let alert = UIAlertController(title: title, message: message,
                                       preferredStyle: .alert)
         let action = UIAlertAction(title: "Ok", style: .default) { _ in
@@ -17,4 +17,5 @@ extension UIViewController {
         alert.addAction(action)
         self.present(alert, animated: true)
     }
+    
 }

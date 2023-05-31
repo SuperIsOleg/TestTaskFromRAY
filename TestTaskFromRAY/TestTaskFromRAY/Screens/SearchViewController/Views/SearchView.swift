@@ -121,6 +121,10 @@ final class SearchView: UIView {
         self.resultImageView.image = UIImage(data: data)
     }
     
+    internal func setAddFavoriteButtonEnabled(ifNeeded: Bool) {
+        self.addFavoriteButton.isEnabled = !ifNeeded
+    }
+    
     @objc
     private func searchButtonTap() {
         self.delegate?.searchAction()

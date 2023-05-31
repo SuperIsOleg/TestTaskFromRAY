@@ -23,7 +23,7 @@ final class SearchViewController: UIViewController {
         self.searchView.textField.delegate = self
     }
     
-    private func getImage(text: String) {
+    private func getImage(text: String, completion: @escaping () -> Void) {
         let imageFrame = self.searchView.imageView.frame
         
         Task(priority: .background, operation: {
@@ -33,8 +33,10 @@ final class SearchViewController: UIViewController {
             switch result {
             case .success(let data):
                 self.searchView.setImage(data: data)
+                completion()
             case .failure(let error):
-                self.showError(error.localizedDescription, nil, okCompletion: {})
+                self.showAlert("the text must be in english and not contain a space",
+                               error.localizedDescription, okCompletion: {})
             }
         })
     }
@@ -45,14 +47,20 @@ final class SearchViewController: UIViewController {
 extension SearchViewController: SearchViewDelegate {
     func searchAction() {
         guard let text = self.searchView.textField.text, !text.isEmpty else {
-            return self.showError("the text must be in english and not start with a space", "Enter text", okCompletion: {})
+            return self.showAlert("the text must be in english and not contain a space", "Enter text", okCompletion: {})
         }
-        self.getImage(text: text)
+        self.getImage(text: text, completion: {
+            self.searchView.setAddFavoriteButtonEnabled(ifNeeded: self.searchView.imageView.image == nil)
+        })
         self.searchView.textField.resignFirstResponder()
         self.searchView.textField.text = nil
     }
     
-    func addToFavoriteAction() { }
+    func addToFavoriteAction() {
+        self.searchView.setImage(data: Data())
+        self.searchView.setAddFavoriteButtonEnabled(ifNeeded: true)
+        self.showAlert("Picture successfully added to favorites")
+    }
     
 }
 
