@@ -30,7 +30,9 @@ final class FavoriteViewModel: FavoriteViewModelProtocol {
       let result = self.coreDataManager.getAllItems()
         switch result {
         case .success(let items):
-            self.imageModel = items
+            self.imageModel = items.sorted {
+                $0.createdAt < $1.createdAt
+            }
         case .failure(let error):
             print(error.localizedDescription)
         }

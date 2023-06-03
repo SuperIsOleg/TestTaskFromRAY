@@ -103,10 +103,8 @@ final class FavoriteTableViewCell: UITableViewCell {
     }
     
     internal func configure(model: ImageModel) {
-        guard let data = model.imageData,
-              let url = model.imageUrl else { return }
-        self.favoriteImageView.image = UIImage(data: data)
-        self.mutableString(url: url)
+        self.favoriteImageView.image = UIImage(data: model.imageData)
+        self.mutableString(url: model.imageUrl)
     }
     
     @objc

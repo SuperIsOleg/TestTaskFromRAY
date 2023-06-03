@@ -11,7 +11,7 @@ protocol CoreDataManagerProtocol {
     func getAllItems() -> Result<[ImageModel], Error>
     func createItem(data: Data, imageUrl: URL)
     func deleteItem(item: ImageModel)
-    func updateItem(item: ImageModel, imageData: Data)
+    func updateItem(item: ImageModel, imageData: Data, imageUrl: URL)
 }
 
 class CoreDataManager: CoreDataManagerProtocol {
@@ -53,8 +53,10 @@ class CoreDataManager: CoreDataManagerProtocol {
         }
     }
     
-    func updateItem(item: ImageModel, imageData: Data) {
+    func updateItem(item: ImageModel, imageData: Data, imageUrl: URL) {
         item.imageData = imageData
+        item.createdAt = Date()
+        item.imageUrl = imageUrl
         
         do {
             try context.save()
