@@ -14,8 +14,6 @@
 		022005C72A25FFDD0056E7BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 022005C62A25FFDD0056E7BD /* Assets.xcassets */; };
 		022005CA2A25FFDD0056E7BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 022005C82A25FFDD0056E7BD /* LaunchScreen.storyboard */; };
 		022005D52A25FFDD0056E7BD /* TestTaskFromRAYTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022005D42A25FFDD0056E7BD /* TestTaskFromRAYTests.swift */; };
-		022005DF2A25FFDD0056E7BD /* TestTaskFromRAYUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022005DE2A25FFDD0056E7BD /* TestTaskFromRAYUITests.swift */; };
-		022005E12A25FFDE0056E7BD /* TestTaskFromRAYUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022005E02A25FFDE0056E7BD /* TestTaskFromRAYUITestsLaunchTests.swift */; };
 		022005F22A2603EB0056E7BD /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022005F12A2603EB0056E7BD /* TabBarController.swift */; };
 		022005F62A2606920056E7BD /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022005F52A2606920056E7BD /* FavoriteViewController.swift */; };
 		022005FD2A261D830056E7BD /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022005FC2A261D830056E7BD /* SearchView.swift */; };
@@ -26,6 +24,7 @@
 		022006102A263D930056E7BD /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0220060F2A263D930056E7BD /* HTTPMethod.swift */; };
 		022006122A263E7D0056E7BD /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022006112A263E7D0056E7BD /* RequestError.swift */; };
 		022006142A263EF10056E7BD /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022006132A263EF10056E7BD /* HTTPClient.swift */; };
+		022BA3E02A2B6DFA00BE119E /* TestTaskFromRAYUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022BA3DF2A2B6DFA00BE119E /* TestTaskFromRAYUITest.swift */; };
 		0250509A2A2723F40039A19C /* ImageEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025050992A2723F40039A19C /* ImageEndpoint.swift */; };
 		0250509C2A27274D0039A19C /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0250509B2A27274D0039A19C /* ImageService.swift */; };
 		025050A02A2729A00039A19C /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0250509F2A2729A00039A19C /* SearchViewModel.swift */; };
@@ -66,8 +65,6 @@
 		022005D02A25FFDD0056E7BD /* TestTaskFromRAYTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestTaskFromRAYTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		022005D42A25FFDD0056E7BD /* TestTaskFromRAYTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTaskFromRAYTests.swift; sourceTree = "<group>"; };
 		022005DA2A25FFDD0056E7BD /* TestTaskFromRAYUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestTaskFromRAYUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		022005DE2A25FFDD0056E7BD /* TestTaskFromRAYUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTaskFromRAYUITests.swift; sourceTree = "<group>"; };
-		022005E02A25FFDE0056E7BD /* TestTaskFromRAYUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTaskFromRAYUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		022005F12A2603EB0056E7BD /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		022005F52A2606920056E7BD /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		022005FC2A261D830056E7BD /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
@@ -78,6 +75,7 @@
 		0220060F2A263D930056E7BD /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		022006112A263E7D0056E7BD /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
 		022006132A263EF10056E7BD /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		022BA3DF2A2B6DFA00BE119E /* TestTaskFromRAYUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTaskFromRAYUITest.swift; sourceTree = "<group>"; };
 		025050992A2723F40039A19C /* ImageEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEndpoint.swift; sourceTree = "<group>"; };
 		0250509B2A27274D0039A19C /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		0250509F2A2729A00039A19C /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
@@ -159,8 +157,7 @@
 		022005DD2A25FFDD0056E7BD /* TestTaskFromRAYUITests */ = {
 			isa = PBXGroup;
 			children = (
-				022005DE2A25FFDD0056E7BD /* TestTaskFromRAYUITests.swift */,
-				022005E02A25FFDE0056E7BD /* TestTaskFromRAYUITestsLaunchTests.swift */,
+				022BA3DF2A2B6DFA00BE119E /* TestTaskFromRAYUITest.swift */,
 			);
 			path = TestTaskFromRAYUITests;
 			sourceTree = "<group>";
@@ -512,8 +509,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				022005E12A25FFDE0056E7BD /* TestTaskFromRAYUITestsLaunchTests.swift in Sources */,
-				022005DF2A25FFDD0056E7BD /* TestTaskFromRAYUITests.swift in Sources */,
+				022BA3E02A2B6DFA00BE119E /* TestTaskFromRAYUITest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
