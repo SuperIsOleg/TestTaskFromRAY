@@ -7,13 +7,21 @@
 
 import UIKit
 
-class CoreDataManager {
+protocol CoreDataManagerProtocol {
+    func getAllItems() -> Result<[ImageModel], Error>
+    func createItem(data: Data, imageUrl: URL)
+    func deleteItem(item: ImageModel)
+    func updateItem(item: ImageModel, imageData: Data)
+}
+
+class CoreDataManager: CoreDataManagerProtocol {
+
     static let shared = CoreDataManager()
     private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     private init() {}
     
-    internal func getAllItems() -> Result<[ImageModel], Error>{
+    internal func getAllItems() -> Result<[ImageModel], Error> {
         do {
             let items = try self.context.fetch(ImageModel.fetchRequest())
             return .success(items)
@@ -31,7 +39,7 @@ class CoreDataManager {
         do {
             try context.save()
         } catch {
-            
+            print(error.localizedDescription)
         }
     }
     
@@ -41,7 +49,7 @@ class CoreDataManager {
         do {
             try context.save()
         } catch {
-            
+            print(error.localizedDescription)
         }
     }
     
@@ -51,7 +59,7 @@ class CoreDataManager {
         do {
             try context.save()
         } catch {
-            
+            print(error.localizedDescription)
         }
     }
 
