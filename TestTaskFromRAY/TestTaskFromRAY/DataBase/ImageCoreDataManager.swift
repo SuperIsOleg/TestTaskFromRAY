@@ -7,21 +7,21 @@
 
 import UIKit
 
-protocol CoreDataManagerProtocol {
-    func getAllItems() -> Result<[ImageModel], Error>
-    func createItem(data: Data, imageUrl: URL)
-    func deleteItem(item: ImageModel)
-    func updateItem(item: ImageModel, imageData: Data, imageUrl: URL)
+protocol ImageCoreDataManagerProtocol {
+    func getAllImages() -> Result<[ImageModel], Error>
+    func createImageModel(data: Data, imageUrl: URL)
+    func deleteImageModel(item: ImageModel)
+    func updateImageModel(item: ImageModel, imageData: Data, imageUrl: URL)
 }
 
-class CoreDataManager: CoreDataManagerProtocol {
+class ImageCoreDataManager: ImageCoreDataManagerProtocol {
 
-    static let shared = CoreDataManager()
+    static let shared = ImageCoreDataManager()
     private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     private init() {}
     
-    internal func getAllItems() -> Result<[ImageModel], Error> {
+    internal func getAllImages() -> Result<[ImageModel], Error> {
         do {
             let items = try self.context.fetch(ImageModel.fetchRequest())
             return .success(items)
@@ -30,7 +30,7 @@ class CoreDataManager: CoreDataManagerProtocol {
         }
     }
     
-    internal func createItem(data: Data, imageUrl: URL) {
+    internal func createImageModel(data: Data, imageUrl: URL) {
         let newItem = ImageModel(context: self.context)
         newItem.imageData = data
         newItem.imageUrl = imageUrl
@@ -43,7 +43,7 @@ class CoreDataManager: CoreDataManagerProtocol {
         }
     }
     
-    internal func deleteItem(item: ImageModel) {
+    internal func deleteImageModel(item: ImageModel) {
         self.context.delete(item)
         
         do {
@@ -53,10 +53,10 @@ class CoreDataManager: CoreDataManagerProtocol {
         }
     }
     
-    func updateItem(item: ImageModel, imageData: Data, imageUrl: URL) {
+    func updateImageModel(item: ImageModel, imageData: Data, imageUrl: URL) {
         item.imageData = imageData
-        item.createdAt = Date()
         item.imageUrl = imageUrl
+        item.createdAt = Date()
         
         do {
             try context.save()

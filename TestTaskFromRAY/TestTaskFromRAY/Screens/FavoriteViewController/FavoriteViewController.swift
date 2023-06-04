@@ -26,7 +26,7 @@ final class FavoriteViewController: UIViewController {
     }
     
     internal func getAllItems() {
-        self.viewModel.getAllItems()
+        self.viewModel.getAllImages()
     }
     
 }
@@ -75,7 +75,7 @@ extension FavoriteViewController: FavoriteTableViewCellDelegate {
               let imageModelArray = self.viewModel.imageModel else { return }
         let imageModel = imageModelArray[indexPath.row]
         self.viewModel.imageModel?.remove(at: indexPath.row)
-        self.viewModel.deleteItem(model: imageModel)
+        self.viewModel.deleteImageModel(model: imageModel)
     }
     
 }

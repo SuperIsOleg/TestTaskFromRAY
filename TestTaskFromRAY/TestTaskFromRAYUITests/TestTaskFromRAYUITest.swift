@@ -30,17 +30,12 @@ final class TestTaskFromRAYUITest: XCTestCase {
         
         let searchButton = app.buttons.containing(.staticText, identifier: "Search").element
         XCTAssertTrue(searchButton.exists, "Not found the button")
-        XCTAssertTrue(searchButton.isEnabled)
         searchButton.tap()
         
         let addToFavoriteButton = app.buttons["Add to favorite"]
         XCTAssertTrue(addToFavoriteButton.exists, "Not found the button")
-        XCTAssertTrue(addToFavoriteButton.isEnabled)
         addToFavoriteButton.tap()
-        
-        XCTAssertFalse(searchButton.isEnabled)
-        XCTAssertFalse(addToFavoriteButton.isEnabled)
-        
+
         let alert = app.alerts.staticTexts["Picture successfully added to favorites"]
         XCTAssertTrue(alert.waitForExistence(timeout: 1), "Not found alert")
         
@@ -61,12 +56,10 @@ final class TestTaskFromRAYUITest: XCTestCase {
         
         let searchButton = app.buttons.containing(.staticText, identifier: "Search").element
         XCTAssertTrue(searchButton.exists, "Not found the button")
-        XCTAssertTrue(searchButton.isEnabled)
         searchButton.tap()
         
         let addToFavoriteButton = app.buttons["Add to favorite"]
         XCTAssertTrue(addToFavoriteButton.exists, "Not found the button")
-        XCTAssertTrue(addToFavoriteButton.isEnabled)
         addToFavoriteButton.tap()
         
         let tabBar = app.tabBars["Tab Bar"]

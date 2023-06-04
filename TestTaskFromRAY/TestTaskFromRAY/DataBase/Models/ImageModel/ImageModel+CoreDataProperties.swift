@@ -11,7 +11,7 @@ import CoreData
 
 
 extension ImageModel {
-
+    
     @nonobjc public class func fetchRequest() -> NSFetchRequest<ImageModel> {
         return NSFetchRequest<ImageModel>(entityName: "ImageModel")
     }

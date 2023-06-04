@@ -31,7 +31,7 @@
 		025050A32A2730090039A19C /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025050A22A2730090039A19C /* UIViewController+Extension.swift */; };
 		025050AA2A277AB60039A19C /* ImageModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025050A82A277AB60039A19C /* ImageModel+CoreDataClass.swift */; };
 		025050AB2A277AB60039A19C /* ImageModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025050A92A277AB60039A19C /* ImageModel+CoreDataProperties.swift */; };
-		025050AE2A277E2C0039A19C /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025050AD2A277E2C0039A19C /* CoreDataManager.swift */; };
+		025050AE2A277E2C0039A19C /* ImageCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025050AD2A277E2C0039A19C /* ImageCoreDataManager.swift */; };
 		025050B32A2781060039A19C /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025050B22A2781060039A19C /* FavoriteViewModel.swift */; };
 		025050B52A2791EC0039A19C /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025050B42A2791EC0039A19C /* FavoriteTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -82,7 +82,7 @@
 		025050A22A2730090039A19C /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		025050A82A277AB60039A19C /* ImageModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageModel+CoreDataClass.swift"; sourceTree = "<group>"; };
 		025050A92A277AB60039A19C /* ImageModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		025050AD2A277E2C0039A19C /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		025050AD2A277E2C0039A19C /* ImageCoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCoreDataManager.swift; sourceTree = "<group>"; };
 		025050B22A2781060039A19C /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
 		025050B42A2791EC0039A19C /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -302,7 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				025050AF2A277E3A0039A19C /* Models */,
-				025050AD2A277E2C0039A19C /* CoreDataManager.swift */,
+				025050AD2A277E2C0039A19C /* ImageCoreDataManager.swift */,
 				022005C32A25FFDD0056E7BD /* TestTaskFromRAY.xcdatamodeld */,
 			);
 			path = DataBase;
@@ -485,7 +485,7 @@
 				022005F22A2603EB0056E7BD /* TabBarController.swift in Sources */,
 				022006102A263D930056E7BD /* HTTPMethod.swift in Sources */,
 				025050B52A2791EC0039A19C /* FavoriteTableViewCell.swift in Sources */,
-				025050AE2A277E2C0039A19C /* CoreDataManager.swift in Sources */,
+				025050AE2A277E2C0039A19C /* ImageCoreDataManager.swift in Sources */,
 				022006122A263E7D0056E7BD /* RequestError.swift in Sources */,
 				025050AA2A277AB60039A19C /* ImageModel+CoreDataClass.swift in Sources */,
 				022006142A263EF10056E7BD /* HTTPClient.swift in Sources */,

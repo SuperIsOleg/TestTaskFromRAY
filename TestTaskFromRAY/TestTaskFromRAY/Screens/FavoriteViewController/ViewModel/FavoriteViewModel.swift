@@ -8,8 +8,8 @@
 import Foundation
 
 protocol FavoriteViewModelProtocol {
-    func getAllItems()
-    func deleteItem(model: ImageModel)
+    func getAllImages()
+    func deleteImageModel(model: ImageModel)
 }
 
 protocol FavoriteViewModelDelegate: AnyObject {
@@ -18,7 +18,7 @@ protocol FavoriteViewModelDelegate: AnyObject {
 
 final class FavoriteViewModel: FavoriteViewModelProtocol {
 
-    private let coreDataManager = CoreDataManager.shared
+    private let coreDataManager = ImageCoreDataManager.shared
     internal var imageModel: [ImageModel]? {
         didSet {
             self.delegate?.reloadData()
@@ -26,8 +26,8 @@ final class FavoriteViewModel: FavoriteViewModelProtocol {
     }
     internal weak var delegate: FavoriteViewModelDelegate?
     
-    internal func getAllItems() {
-      let result = self.coreDataManager.getAllItems()
+    internal func getAllImages() {
+        let result = self.coreDataManager.getAllImages()
         switch result {
         case .success(let items):
             self.imageModel = items.sorted {
@@ -38,8 +38,8 @@ final class FavoriteViewModel: FavoriteViewModelProtocol {
         }
     }
     
-   internal func deleteItem(model: ImageModel) {
-       self.coreDataManager.deleteItem(item: model)
+   internal func deleteImageModel(model: ImageModel) {
+       self.coreDataManager.deleteImageModel(item: model)
     }
     
 }

@@ -70,7 +70,7 @@ extension SearchViewController: SearchViewDelegate {
     }
     
     func addToFavoriteAction() {
-        self.viewModel.createItem()
+        self.viewModel.createImageModel()
         self.viewModel.imageData = nil
         self.searchView.setImage(data: Data())
         self.searchView.setAddFavoriteButtonEnabled(ifNeeded: true)
