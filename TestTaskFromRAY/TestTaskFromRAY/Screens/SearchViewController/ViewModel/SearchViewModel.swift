@@ -45,10 +45,7 @@ final class SearchViewModel: SearchViewModelProtocol {
             if imageModel.count < 5 {
                 self.coreDataManager.createImageModel(data: data, imageUrl: url)
             } else {
-                let sortedArray = imageModel.sorted {
-                    $0.createdAt < $1.createdAt
-                }
-                guard let model = sortedArray.first else { return }
+                guard let model = imageModel.first else { return }
                 self.updateImageModel(item: model, imageData: data, imageUrl: url)
             }
         } else {
